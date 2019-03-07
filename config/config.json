@@ -1,0 +1,31 @@
+{
+  "migration": {
+    "path": "migrations"
+  },
+  "testing": {
+    "seed_path": "testing/seed.sql",
+    "mock_path": "testing/mock/"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "theboats",
+    "user": "theboats",
+    "password": "passwd"
+  },
+  "log": {
+    "level": "debug",
+    "format": "json",
+    "output": "stdout"
+  },
+  "http": {
+    "port": 2222
+  },
+  "gds": {
+    "nausys": {
+      "url": "http://ws.nausys.com/CBMS-external/rest/",
+      "login": "*****",
+      "password": "*****"
+    }
+  }
+}
