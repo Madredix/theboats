@@ -17,7 +17,10 @@ const testDataPathYachtReservation = `../../../testing/mock/gds/yachtReservation
 func TestNausys_GetReservations(t *testing.T) {
 	test.MockHTTPResponse(http.StatusOK, map[string]string{"Content-Type": "application/json"}, test.GetTestData(testDataPathYachtReservation, t))
 	nausys := getNausys()
-	reservations := nausys.GetReservations()
+	reservations, err := nausys.GetReservations()
+	if err != nil {
+		t.Errorf("\nUnexpected error: %s", err.Error())
+	}
 
 	expected := []models.Reservation{
 		{ID: 265052527, YachtID: 479288, PeriodFrom: time.Date(2019, 4, 6, 9, 0, 0, 0, time.UTC), PeriodTo: time.Date(2019, 4, 13, 19, 0, 0, 0, time.UTC)},
