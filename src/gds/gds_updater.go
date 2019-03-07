@@ -34,7 +34,7 @@ func (g gdsUpdater) Update(gds GDS, manual bool) bool {
 
 	lastUpdate := gdsModel.LastUpdate()
 	if lastUpdate != nil && (lastUpdate.Add(gds.GetUpdateInterval()).After(time.Now()) || !manual) {
-		l.Error(`too short period or run first with exists data`)
+		l.Info(`too short period or run not manual with exists data`)
 		return false
 	}
 
